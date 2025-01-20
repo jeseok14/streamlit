@@ -1,5 +1,11 @@
 import streamlit as st
 from datetime import time, datetime
+import pandas as pd
+import numpy as np
+import altair as alt
+from vega_datasets import data
+
+
 
 st.header('st.slider')
 
@@ -74,8 +80,6 @@ c = (
 
 st.altair_chart(c, use_container_width = True)
 
-import altair as alt
-from vega_datasets import data
 
 source = data.cars()
 
