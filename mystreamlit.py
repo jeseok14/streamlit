@@ -20,7 +20,7 @@ st.write('저는 ', age, '살 입니다.')
 st.subheader('통계학')
 
 s1, s2 = st.select_slider(
-    '제 타임라인은', 
+    '저는', 
     options = [
         '고등학교',
         '학사과정',
