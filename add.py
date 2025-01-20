@@ -3,7 +3,6 @@ from datetime import time, datetime
 import pandas as pd
 import numpy as np
 import altair as alt
-from vega_datasets import data
 
 
 
@@ -80,21 +79,3 @@ c = (
 
 st.altair_chart(c, use_container_width = True)
 
-
-source = data.cars()
-
-chart = alt.Chart(source).mark_circle().encode(
-		x = 'Horsepower',
-		y = 'Miles_per_Gallon',
-		color = 'Origin',
-).interactive()
-
-tab1, tab2 = st.tabs(['Streamlit themedefault)', 'Altair native theme'])
-
-with tab1:
-	# User the streamlit theme
-	# This is the default. So you can also omit the theme argument.
-	st.altair_chart(chart, theme = 'streamlit', use_container_width = True)
-with tab2:
-	# Use the native Altair theme.
-	st.altair_chart(chart, theme = None, use_container_width = True)
