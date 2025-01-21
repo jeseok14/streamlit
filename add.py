@@ -79,3 +79,25 @@ c = (
 
 st.altair_chart(c, use_container_width = True)
 
+st.header('st.selectbox and checkbox')
+
+
+st.session_state.visibility = 'visible'
+st.session_state.disabled = False
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.checkbox('Disable selectbox widget', key = 'disabled')
+    st.radio(
+        "Set selectbox label visibility :pointright:",
+        key = 'visibility',
+        options = ['visible', 'hidden', 'collapsed']
+    )
+with col2:
+    option = st.selectbox(
+        "How would you like to be contacted?",
+        ("Email", "Home phone", "Mobile phone"),
+        label_visibility = st.session_state.visibility,
+        disabled = st.session_state.disabled
+    )
