@@ -75,6 +75,23 @@ with tab1:
 with tab2:
     st.altair_chart(chart1, theme = None, use_container_width = True)
 
+st.write('궁금한 최종 학점을 선택해 주세요.')
+
+undergraduate = st.checkbox('학부')
+
+master = st.checkbox('석사')
+
+grade_ms_filled = grade_ms.fillna(0)
+master_grade = round(sum(grade_ms_filled['grade'] * grade_ms_filled['earned']) / sum(grade_ms_filled['earned']), 2)
+
+
+if undergraduate:
+    st.write('제 학부 최종 학점은 `4.16` 입니다.')
+
+if master:
+    st.write('제 석사 최종 학점은', master_grade, '입니다.')
+
+
 option = st.selectbox(
     'How would you like to be contacted?',
     ("Email", "Mobile phone"),
@@ -82,5 +99,13 @@ option = st.selectbox(
 )
 
 st.write('You selected :', option)
+
+st.write("연락 방법을 선택해주세요.")
+
+email = st.checkbox("이메일")
+
+if email:
+    st.write("제 이메일 주소는 다음과 같습니다.")
+    st.write("jeseok1014@gmail.com")
 
 st.write('감사합니다.')
